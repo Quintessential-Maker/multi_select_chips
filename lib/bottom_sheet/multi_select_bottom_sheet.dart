@@ -322,7 +322,7 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                       ),
               ),
               Container(
-                padding: EdgeInsets.all(2),
+                padding: EdgeInsets.only(left: 2, right: 2, top: 2, bottom: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [

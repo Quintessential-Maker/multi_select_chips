@@ -174,7 +174,7 @@ class _MyHomePageState extends State<MyHomePage> {
               //################################################################################################
               // MultiSelectBottomSheetField with validators
               //################################################################################################
-              MultiSelectBottomSheetField<Animal>(
+              /*MultiSelectBottomSheetField<Animal>(
                 key: _multiSelectKey,
                 initialChildSize: 0.7,
                 maxChildSize: 0.95,
@@ -225,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   //_selectedAnimals4 = values;
                 },
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 40),*/
               //################################################################################################
               // MultiSelectDialogField with initial values
               //################################################################################################
