@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../util/multi_select_item.dart';
+
 import '../util/multi_select_actions.dart';
+import '../util/multi_select_item.dart';
 import '../util/multi_select_list_type.dart';
 
 /// A bottom sheet widget containing either a classic checkbox style list, or a chip style list.
@@ -327,13 +328,13 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                      child: ElevatedButton(
+                      child: TextButton(
                         onPressed: () {
                           widget.onCancelTap(context, widget.initialValue);
                         },
-                        style: ElevatedButton.styleFrom(
+                        style: TextButton.styleFrom(
                           backgroundColor: (widget.selectedColor != null &&
-                              widget.selectedColor != Colors.transparent)
+                                  widget.selectedColor != Colors.transparent)
                               ? widget.selectedColor!.withOpacity(1)
                               : Theme.of(context).primaryColor,
                           foregroundColor: Colors.white,
@@ -343,11 +344,14 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                           ),
                         ),
                         child: widget.cancelText ??
-                            const Text(
+                            Text(
                               "CANCEL",
                               style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
+                                color: (widget.selectedColor != null &&
+                                        widget.selectedColor !=
+                                            Colors.transparent)
+                                    ? widget.selectedColor!.withOpacity(1)
+                                    : Theme.of(context).primaryColor,
                               ),
                             ),
                       ),

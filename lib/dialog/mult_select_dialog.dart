@@ -302,12 +302,6 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
           child: widget.cancelText ??
               Text(
                 "CANCEL",
-                // style: TextStyle(
-                //   color: (widget.selectedColor != null &&
-                //           widget.selectedColor != Colors.transparent)
-                //       ? widget.selectedColor!.withOpacity(1)
-                //       : Theme.of(context).primaryColor,
-                // ),
               ),
           onPressed: () {
             widget.onCancelTap(context, widget.initialValue);
@@ -329,12 +323,6 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
           child: widget.confirmText ??
               Text(
                 'OK',
-                // style: TextStyle(
-                //   color: (widget.selectedColor != null &&
-                //           widget.selectedColor != Colors.transparent)
-                //       ? widget.selectedColor!.withOpacity(1)
-                //       : Theme.of(context).primaryColor,
-                // ),
               ),
           onPressed: () {
             widget.onConfirmTap(context, _selectedValues, widget.onConfirm);
