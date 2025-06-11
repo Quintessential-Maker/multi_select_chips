@@ -322,11 +322,11 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                       ),
               ),
               Container(
-                padding: EdgeInsets.only(left: 2, right: 2, top: 2, bottom: 50),
+                padding: EdgeInsets.only(left: 20, right: 20, top: 2, bottom: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Expanded(
+                    /*Expanded(
                       child: TextButton(
                         onPressed: () {
                           widget.onCancelTap(context, widget.initialValue);
@@ -343,27 +343,62 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                               ),
                             ),
                       ),
-                    ),
-                    SizedBox(width: 10),
+                    ),*/
                     Expanded(
-                      child: TextButton(
+                      child: ElevatedButton(
                         onPressed: () {
-                          widget.onConfirmTap(
-                              context, _selectedValues, widget.onConfirm);
+                          widget.onCancelTap(context, widget.initialValue);
                         },
-                        child: widget.confirmText ??
-                            Text(
-                              "OK",
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: (widget.selectedColor != null &&
+                              widget.selectedColor != Colors.transparent)
+                              ? widget.selectedColor!.withOpacity(1)
+                              : Theme.of(context).primaryColor,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        child: widget.cancelText ??
+                            const Text(
+                              "CANCEL",
                               style: TextStyle(
-                                color: (widget.selectedColor != null &&
-                                        widget.selectedColor !=
-                                            Colors.transparent)
-                                    ? widget.selectedColor!.withOpacity(1)
-                                    : Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
                               ),
                             ),
                       ),
                     ),
+
+                    SizedBox(width: 20),
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          widget.onConfirmTap(context, _selectedValues, widget.onConfirm);
+                        },
+                        style: TextButton.styleFrom(
+                          backgroundColor: (widget.selectedColor != null &&
+                              widget.selectedColor != Colors.transparent)
+                              ? widget.selectedColor!.withOpacity(1)
+                              : Theme.of(context).primaryColor,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        child: widget.confirmText ??
+                            const Text(
+                              "OK",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                      ),
+                    ),
+
                   ],
                 ),
               ),
