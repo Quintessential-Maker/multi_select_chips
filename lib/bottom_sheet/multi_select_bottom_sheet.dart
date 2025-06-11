@@ -326,24 +326,6 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    /*Expanded(
-                      child: TextButton(
-                        onPressed: () {
-                          widget.onCancelTap(context, widget.initialValue);
-                        },
-                        child: widget.cancelText ??
-                            Text(
-                              "CANCEL",
-                              style: TextStyle(
-                                color: (widget.selectedColor != null &&
-                                        widget.selectedColor !=
-                                            Colors.transparent)
-                                    ? widget.selectedColor!.withOpacity(1)
-                                    : Theme.of(context).primaryColor,
-                              ),
-                            ),
-                      ),
-                    ),*/
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {

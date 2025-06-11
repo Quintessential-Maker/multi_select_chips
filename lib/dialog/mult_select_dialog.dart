@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../util/multi_select_actions.dart';
 import '../util/multi_select_item.dart';
 import '../util/multi_select_list_type.dart';
@@ -301,31 +302,53 @@ class _MultiSelectDialogState<T> extends State<MultiSelectDialog<T>> {
           child: widget.cancelText ??
               Text(
                 "CANCEL",
-                style: TextStyle(
-                  color: (widget.selectedColor != null &&
-                          widget.selectedColor != Colors.transparent)
-                      ? widget.selectedColor!.withOpacity(1)
-                      : Theme.of(context).primaryColor,
-                ),
+                // style: TextStyle(
+                //   color: (widget.selectedColor != null &&
+                //           widget.selectedColor != Colors.transparent)
+                //       ? widget.selectedColor!.withOpacity(1)
+                //       : Theme.of(context).primaryColor,
+                // ),
               ),
           onPressed: () {
             widget.onCancelTap(context, widget.initialValue);
           },
+          style: TextButton.styleFrom(
+            backgroundColor: (widget.selectedColor != null &&
+                    widget.selectedColor != Colors.transparent)
+                ? widget.selectedColor!.withOpacity(1)
+                : Theme.of(context).primaryColor,
+            foregroundColor: Colors.white, // Text color
+            padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
         ),
+        // SizedBox(height: 5, width: 5,),
         TextButton(
           child: widget.confirmText ??
               Text(
                 'OK',
-                style: TextStyle(
-                  color: (widget.selectedColor != null &&
-                          widget.selectedColor != Colors.transparent)
-                      ? widget.selectedColor!.withOpacity(1)
-                      : Theme.of(context).primaryColor,
-                ),
+                // style: TextStyle(
+                //   color: (widget.selectedColor != null &&
+                //           widget.selectedColor != Colors.transparent)
+                //       ? widget.selectedColor!.withOpacity(1)
+                //       : Theme.of(context).primaryColor,
+                // ),
               ),
           onPressed: () {
             widget.onConfirmTap(context, _selectedValues, widget.onConfirm);
-          },
+          },style: TextButton.styleFrom(
+          backgroundColor: (widget.selectedColor != null &&
+              widget.selectedColor != Colors.transparent)
+              ? widget.selectedColor!.withOpacity(1)
+              : Theme.of(context).primaryColor,
+          foregroundColor: Colors.white, // Text color
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+        ),
         )
       ],
     );
